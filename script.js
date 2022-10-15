@@ -15,10 +15,10 @@ const data = [
     }
 ];
 
-data.forEach(blockObj => {
+data.forEach((blockObj, i) => {
     const block = document.createElement(blockObj.tag);
 
-    if (!blockObj.id) throw '"id" is not defined.';
+    if (!blockObj.id) throw new Error(`в данных под номером ${i + 1} отсутствует id.`);
 
     block.setAttribute('id', blockObj.id);
     document.body.append(block);
