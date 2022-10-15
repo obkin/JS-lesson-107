@@ -17,6 +17,9 @@ const data = [
 
 data.forEach(blockObj => {
     const block = document.createElement(blockObj.tag);
+
+    if (!blockObj.id) throw '"id" is not defined.';
+
     block.setAttribute('id', blockObj.id);
     document.body.append(block);
 });
