@@ -6,12 +6,12 @@ const data = [
         tag: 'div'
     },
     {
-        id: '',
+        id: 'someid',
         tag: 'nav'        
     },
     {
         id: 'circle',
-        tag: 'span'
+        tag: ''
     }
 ];
 
@@ -27,9 +27,11 @@ try {
         document.body.append(block);
     });
 } catch(e) {
-    console.error(e.name);
-    console.log(e.message);
-    console.log(e.stack);
+    if (e.name === 'SyntaxError') {
+        console.error(e.message);
+    } else {
+        throw e;
+    }
 }
 
 // const err = new SyntaxError('gg');
